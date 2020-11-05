@@ -14,24 +14,7 @@ echo "parallel job count: ${NJOBS}"
 
 cd "src/node-${version}"
 
-if which python3 >/dev/null 2>&1; then
-    PYTHON="${PYTHON:-python3}"
-else
-    PYTHON="${PYTHON:-python2}"
-fi
-
-case "${platform}" in
-    SunOS)
-        export CC="${CC:-/opt/local/gcc7/bin/gcc}"
-        export CXX="${CXX:-/opt/local/gcc7/bin/g++}"
-        ;;
-    *)
-        if cc --version | grep 4.9 >/dev/null; then
-            export CC="${CC:-clang}"
-            export CXX="${CXX:-clang++}"
-        fi
-        ;;
-esac
+PYTHON="${PYTHON:-python2}"
 
 "${PYTHON}" configure --openssl-no-asm --without-npm --shared --with-intl=small-icu
 make BUILDTYPE=Release config.gypi
