@@ -20,9 +20,9 @@
 --- a/tools/v8_gypfiles/v8.gyp	2020-11-04 16:34:06.000000000 +0100
 +++ b/tools/v8_gypfiles/v8.gyp	2020-11-04 16:34:10.000000000 +0100
 @@ -1726,5 +1726,21 @@
-         '<(V8_ROOT)/third_party/zlib/google/compression_utils_portable.h',
-       ],
-     },  # v8_zlib
+         'sources': ['<(SHARED_INTERMEDIATE_DIR)/debug-support.cc', ],
+       },
+     },  # postmortem-metadata
 +    {
 +      'target_name': 'v8_monolith',
 +      'type': 'static_library',
