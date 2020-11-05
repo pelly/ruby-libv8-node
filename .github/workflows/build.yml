@@ -59,7 +59,7 @@ jobs:
   build-linux-glibc:
     name: Build (Linux glibc)
     runs-on: ubuntu-20.04
-    container: ruby:2.2
+    container: ruby:2.3
     steps:
         - name: Checkout
           uses: actions/checkout@v2
@@ -113,7 +113,7 @@ jobs:
   build-linux-musl:
     name: Build (Linux musl)
     runs-on: ubuntu-20.04
-    container: ruby:2.7-alpine
+    container: ruby:2.3-alpine
     steps:
         - name: Install system dependencies
           run: apk add --no-cache build-base bash python2 python3 git curl tar clang binutils-gold
